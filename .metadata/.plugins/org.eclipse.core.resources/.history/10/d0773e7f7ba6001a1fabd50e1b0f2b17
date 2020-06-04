@@ -106,27 +106,14 @@ public class PostController {
 			response.setStatus(400);//foreign key constraint
 		}
 	}
-	////////////SEARCH FOR CATEGORY///////////////
-	@GetMapping("categories/{id}/posts")
-	public List<Post> findByCategoryId(@PathVariable int id,
-			HttpServletResponse response){
-		List <Post> posts = postSvc.findByCategoryId(id);
-		if(posts == null) {
-			response.setStatus(404);
-		}
-		return posts;
-	}
 
 	///////////////SEARCH FOR POSTS//////////
-	
-	@GetMapping("posts/search/{keyword}")
 	public List<Post> postsByKeyword(@PathVariable String keyword){
 		return postSvc.postsByKeyword(keyword);
 	}
 	
 	/////////////POSTS BY PRICE RANGE//////////
-	@GetMapping("posts/search/price/{low}/{high}")
-	public List<Post> findByPriceBetween(@PathVariable Double low,@PathVariable double high){
+	public List<Post> findByPriceBetween(@PathVariable double low,@PathVariable double high){
 		return postSvc.findByPriceBetween(low, high);
 	}
 }
