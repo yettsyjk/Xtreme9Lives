@@ -1,0 +1,6 @@
+package com.skilldistillery.xtreme.services;
+
+@Service
+public class CategoryServiceImpl implements CategoryService {
+
+}

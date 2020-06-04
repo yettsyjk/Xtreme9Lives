@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="CommentTest (1)" project="XtremeREST" tests="1" started="1" failures="0" errors="0" ignored="0">
+  <testsuite name="com.skilldistillery.xtreme.CommentTest" time="0.289" displayname="CommentTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.CommentTest]">
+    <testcase name="test1" classname="com.skilldistillery.xtreme.CommentTest" time="0.289" displayname="repo mapping find category by id" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.CommentTest]/[method:test1()]"/>
+  </testsuite>
+</testrun>

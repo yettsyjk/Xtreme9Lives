@@ -1,0 +1,28 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import com.skilldistillery.xtreme.entities.Comment;
+
+public class CommentServiceImpl implements CommentService{
+
+	@Override
+	public List<Comment> findCommentsForPostById(int postId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comment createNewCommentForPostById(int postId, Comment createComment) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean deleteCommentById(int postId, int commentId) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
+
+}

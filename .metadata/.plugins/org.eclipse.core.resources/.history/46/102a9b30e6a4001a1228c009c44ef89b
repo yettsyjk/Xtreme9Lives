@@ -1,0 +1,8 @@
+package com.skilldistillery.xtreme.data;
+
+public interface PostDAO {
+	public List<Post> index();
+	
+	public createPost()Post post;
+
+}

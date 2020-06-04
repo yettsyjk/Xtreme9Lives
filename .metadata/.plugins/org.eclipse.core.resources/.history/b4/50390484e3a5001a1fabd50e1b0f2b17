@@ -1,0 +1,8 @@
+package com.skilldistillery.xtreme.controllers;
+
+
+@RestController
+@RequestMapping("api")
+public class CommentController {
+
+}

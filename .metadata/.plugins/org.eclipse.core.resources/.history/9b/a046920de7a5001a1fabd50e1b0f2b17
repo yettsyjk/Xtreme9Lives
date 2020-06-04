@@ -1,0 +1,18 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.xtreme.entities.Category;
+
+@Service
+public class CategoryServiceImpl implements CategoryService {
+
+	@Override
+	public List<Category> findAllCatergories() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,71 @@
+package com.skilldistillery.xtreme;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+
+import com.skilldistillery.xtreme.entities.Comment;
+import com.skilldistillery.xtreme.repositories.CommentRepository;
+
+
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+class CommentTest {
+	
+	@Autowired
+	private CommentRepository commentRepo;
+
+	
+	@BeforeAll
+	static void setUpBeforeClass() throws Exception {
+	}
+
+	@AfterAll
+	static void tearDownAfterClass() throws Exception {
+	}
+	
+	@Test
+	@DisplayName("repo mapping find category by id")
+	void test1() {
+			Comment comment = new Comment();
+			comment.setId(1);
+			assertNotNull(comment);
+			assertEquals("This seems dangerous", commentRepo.findById(1).get().getContent());
+			assertEquals("Augustus Gibbons", commentRepo.findById(1).get().getName());
+
+	}
+	
+//	@Test
+//	@DisplayName("creating new comment")
+//	void test2() {
+//			Comment createdComment = new Comment();
+//			createdComment.setName("Xander Table");
+//			createdComment.setContent("Amazing!  My girlfriend bought us the Valentine's package and it was so fun and it's addicting.");
+//			assertEquals(4, commentRepo.saveAndFlush(createdComment).getId());
+//			//could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+//
+//	}
+	
+	
+	
+	
+	
+
+}
+//SELECT * FROM comment;
+//+----+------------------+--------------------------+---------+
+//| id | name             | content                  | post_id |
+//+----+------------------+--------------------------+---------+
+//|  1 | Augustus Gibbons | This seems dangerous     |       1 |
+//|  2 | Augustus Gibbons | This seems dangerous too |      34 |
+//|  3 | John Simmons     | Can I jump solo?         |       1 |
+//+----+------------------+--------------------------+---------+

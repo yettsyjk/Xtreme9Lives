@@ -1,0 +1,6 @@
+package com.skilldistillery.xtreme.data;
+
+public class PostDAOImpl implements PostDAO{
+	
+
+}

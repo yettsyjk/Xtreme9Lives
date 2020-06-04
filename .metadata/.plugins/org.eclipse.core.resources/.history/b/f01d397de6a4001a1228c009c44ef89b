@@ -1,0 +1,27 @@
+package com.skilldistillery.xtreme.data;
+
+import java.util.List;
+
+import com.skilldistillery.xtreme.entities.Post;
+
+public class PostDAOImpl implements PostDAO{
+	
+	
+	@PersistenceContext
+	private EntityManager em;
+
+	@Override
+	public List<Post> index() {
+		String jpql = "SELECT p FROM Post p";
+		List<Post> posts;
+		return posts;
+	}
+
+	@Override
+	public Post createPost(Post post) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+
+}

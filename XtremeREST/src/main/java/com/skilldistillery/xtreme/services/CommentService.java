@@ -1,0 +1,16 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import com.skilldistillery.xtreme.entities.Comment;
+
+public interface CommentService {
+
+	List<Comment> findCommentsForPostById(int postId);
+	
+	Comment createNewCommentForPostById(int postId, Comment createComment);
+	
+	boolean deleteCommentById(int postId, int commentId);
+	
+	
+}

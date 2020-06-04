@@ -1,0 +1,12 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import com.skilldistillery.xtreme.entities.Post;
+
+public interface CommentService {
+
+	List<Comment> findCommentsForPostById(int postId);
+	
+	
+}

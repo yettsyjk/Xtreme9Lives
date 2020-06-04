@@ -1,0 +1,19 @@
+package com.skilldistillery.xtreme.data;
+
+import java.util.List;
+
+import com.skilldistillery.xtreme.entities.Post;
+
+public interface PostDAO {
+	public List<Post> index();
+	
+	public Post createPost(Post post);
+	
+	public Post getPostById(int id);
+	
+	public Post updatePost(Post post, int id);
+	
+	public boolean deletePost(int id);
+
+}
+ 

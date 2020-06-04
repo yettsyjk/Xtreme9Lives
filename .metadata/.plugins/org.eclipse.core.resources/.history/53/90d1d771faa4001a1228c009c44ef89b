@@ -1,0 +1,84 @@
+package com.skilldistillery.xtreme.controllers;
+
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.skilldistillery.xtreme.data.PostDAO;
+import com.skilldistillery.xtreme.entities.Post;
+
+@RestController
+@RequestMapping("api")
+public class PostController {
+	
+	
+	@Autowired
+	private PostDAO postDAO;
+	
+	
+	@GetMapping("ping")
+	public String ping(HttpServletRequest request, HttpServletResponse response) {
+		response.setStatus(200);
+		response.setHeader("Location", "http://localhost:8082/ping");
+		
+		return "pong";
+	}
+
+	///////index/////////////http://localhost:8082/api/posts
+	@GetMapping("posts")
+	public List<Post> index(){ //Post object representations will be returned
+		return postDAO.index();
+	}
+	////////////POST BY ID/////////http://localhost:8082/api/posts/1
+	@GetMapping("posts/{id}")
+	public Post getPostById(@PathVariable Integer id, HttpServletRequest request, HttpServletResponse response) {
+		Post post = postDAO.getPostById(id);
+		if(post == null) {
+			response.setStatus(404);
+			System.out.println("invalid request");
+		} 
+		
+		return post;
+	}
+	
+////////////CREATE POSTS/////////http://localhost:8082/api/posts/1
+	@PostMapping("posts")
+	public Post createPost(@RequestBody Post post, HttpServletResponse response) {
+		Post createdPosts = postDAO.createPost(post);
+		if(post != null) {
+			response.setStatus(201);
+			return createdPosts;
+		} else {
+			response.setStatus(500);
+			return null;
+		}
+	
+	}
+	/////////////UPDATE POSTS///////////////http://localhost:8082/api/posts/91
+	@PatchMapping("posts/{id}")
+	public Post updatePost(@PathVariable int id, @RequestBody Post post) {
+		return postDAO.updatePost(post, id);
+	}
+	
+	
+	
+	
+	
+	////////////DELETE POSTS////////////////
+	@DeleteMapping("posts/{id}")
+	public boolean deletePost(@PathVariable int id) {
+		return postDAO.deletePost(id);
+	}
+	
+}

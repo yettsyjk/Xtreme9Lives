@@ -1,0 +1,24 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.xtreme.entities.Post;
+
+@Service
+public class PostServiceImpl implements PostService{
+
+	@Override
+	public List<Post> findByCategoryId(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Post> findByPriceBetween(double low, double high) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

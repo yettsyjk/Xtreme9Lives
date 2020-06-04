@@ -1,0 +1,43 @@
+package com.skilldistillery.xtreme.data;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.xtreme.entities.Post;
+
+
+@Service
+@Transactional
+public class PostDAOImpl implements PostDAO{
+	
+	
+	@PersistenceContext
+	private EntityManager em;
+
+	@Override
+	public List<Post> index() {
+		String jpql = "SELECT p FROM Post p";
+		List<Post> posts = em.createQuery(jpql, Post.class).getResultList();
+		System.out.println("*************posts*************");
+		System.out.println(posts);
+		return posts;
+	}
+
+	@Override
+	public Post createPost(Post post) {
+		try {
+			em.persist(post);
+			
+		}catch(Exception e) {
+			e.printsStackTrace();
+		}
+		return null;
+	}
+	
+
+}

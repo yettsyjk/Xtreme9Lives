@@ -1,0 +1,43 @@
+package com.skilldistillery.xtreme.entities;
+
+import java.time.LocalDateTime;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+@Entity
+public class Post {
+	//entity annotations
+	//fields Post entity
+	//entity mapping
+	//JUnit Test
+	private int id;
+	private String title;
+	private String name;
+	private String email;
+	private String description;
+	private double price;
+	private String image_url;
+	private String brand;
+	
+	
+	
+	@Column(name="created_at")
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+
+	@Column(name="updated_at")
+	@UpdateTimestamp
+	private LocalDateTime updatedAt;
+	
+	private List<Comment> comments;
+	
+	@JsonIgnore
+	@JoinColumn(name="category_id")
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	private Category category;
+
+}
