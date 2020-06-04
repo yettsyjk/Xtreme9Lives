@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.xtreme.entities.Post;
+import com.skilldistillery.xtreme.repositories.CategoryRepository;
 import com.skilldistillery.xtreme.repositories.PostRepository;
 
 @Service
@@ -13,9 +14,14 @@ public class PostServiceImpl implements PostService{
 	
 	@Autowired
 	private PostRepository postRepo;
+	
+
+	@Autowired
+	private CategoryRepository catRepo;
 
 	@Override
 	public List<Post> findByCategoryId(int id) {
+		
 		return postRepo.findByCategoryId(id);
 	}
 
@@ -23,5 +29,13 @@ public class PostServiceImpl implements PostService{
 	public List<Post> findByPriceBetween(double low, double high) {
 		return postRepo.findByPriceBetween(low, high);
 	}
+
+	@Override
+	public List<Post> postsByKeyword(String keyword) {
+		keyword = "%" + keyword + "%";
+		return postRepo.findByTitleContainingOrNameContaining(keyword,  keyword);
+	}
+
+	
 
 }

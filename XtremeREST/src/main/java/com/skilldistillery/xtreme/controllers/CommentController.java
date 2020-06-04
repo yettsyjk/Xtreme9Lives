@@ -64,7 +64,7 @@ public class CommentController {
 			HttpServletResponse response) {
 		try {
 			if(commentSvc.deleteCommentById(id, commentId)) {
-				response.setStatus(204);
+				response.setStatus(204);//success deletion no content
 				
 			} else {
 				response.setStatus(404);

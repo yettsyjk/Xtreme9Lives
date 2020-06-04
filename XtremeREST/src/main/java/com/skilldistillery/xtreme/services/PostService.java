@@ -8,4 +8,6 @@ public interface PostService {
 	List<Post> findByCategoryId(int id);
 
 	List<Post> findByPriceBetween(double low, double high);
+	
+	List <Post> postsByKeyword(String keyword);
 }

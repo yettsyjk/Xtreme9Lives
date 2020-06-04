@@ -21,7 +21,11 @@ public class CommentServiceImpl implements CommentService{
 
 	@Override
 	public List<Comment> findCommentsForPostById(int postId) {
-		return  commentRepo.findByPostId(postId);
+		if( !postRepo.existsById(postId)) {
+			return null;
+		}
+		List<Comment> comments = commentRepo.findByPostId(postId);
+		 return comments;
 	}
 
 	@Override
@@ -41,11 +45,17 @@ public class CommentServiceImpl implements CommentService{
 
 	@Override
 	public boolean deleteCommentById(int postId, int commentId) {
-		Comment comment = commentRepo.findById(commentId).get();
-		if(comment.getPost().getId() == postId) {
-			return true;
+		boolean deletedComment = false;
+		Optional <Comment> existingComment = commentRepo.findById(commentId);
+		if(existingComment.isPresent()) {
+			Comment comment = existingComment.get();
+			if(comment.getPost().getId() == postId) {
+				commentRepo.delete(comment);
+				deletedComment = true;
+			}
+			
 		}
-		return false;
+		return deletedComment;
 	}
 	
 

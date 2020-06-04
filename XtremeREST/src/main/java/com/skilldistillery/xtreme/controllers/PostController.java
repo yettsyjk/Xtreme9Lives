@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.skilldistillery.xtreme.data.PostDAO;
 import com.skilldistillery.xtreme.entities.Post;
+import com.skilldistillery.xtreme.services.PostService;
 
 @RestController
 @RequestMapping("api")
@@ -25,6 +25,9 @@ public class PostController {
 
 	@Autowired
 	private PostDAO postDAO;
+	
+	@Autowired
+	private PostService postSvc;
 
 	@GetMapping("ping")
 	public String ping(HttpServletRequest request, HttpServletResponse response) {
@@ -104,4 +107,13 @@ public class PostController {
 		}
 	}
 
+	///////////////SEARCH FOR POSTS//////////
+	public List<Post> postsByKeyword(@PathVariable String keyword){
+		return postSvc.postsByKeyword(keyword);
+	}
+	
+	/////////////POSTS BY PRICE RANGE//////////
+	public List<Post> findByPriceBetween(double low, double high){
+		return postSvc.findByPriceBetween(low, high);
+	}
 }

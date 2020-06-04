@@ -1,0 +1,55 @@
+package com.skilldistillery.xtreme.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.skilldistillery.xtreme.entities.Comment;
+import com.skilldistillery.xtreme.entities.Post;
+import com.skilldistillery.xtreme.repositories.CommentRepository;
+import com.skilldistillery.xtreme.repositories.PostRepository;
+
+@Service
+public class CommentServiceImpl implements CommentService{
+	
+	@Autowired
+	private CommentRepository commentRepo;
+	@Autowired
+	private PostRepository postRepo;
+
+	@Override
+	public List<Comment> findCommentsForPostById(int postId) {
+		return  commentRepo.findByPostId(postId);
+	}
+
+	@Override
+	public Comment createNewCommentForPostById(int postId, Comment createComment) {
+		Optional<Post> createdComment = (postRepo.findById(postId));
+		if(createdComment.isPresent()) {
+			Post post = createdComment.get();
+			createComment.setPost(post);
+			commentRepo.saveAndFlush(createComment);
+			return createComment;
+		}else {
+		
+		return null;
+		}
+	}//SELECT * FROM comment WHERE post_id = 2;
+	
+
+	@Override
+	public boolean deleteCommentById(int postId, int commentId) {
+		boolean deletedComment = false;
+		Optional <Comment> existingComment = commentRepo.findById(commentId);
+		if(existingComment.isPresent()) {
+			Comment comment = existingComment.get();
+			if(comment.getPost().getId() == postId) {
+			return true;
+		}
+		return false;
+	}
+	
+
+}
