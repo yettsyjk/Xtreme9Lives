@@ -4411,3 +4411,15 @@ Caused by: java.lang.NoSuchMethodException: org.springframework.context.annotati
 	at java.base/java.lang.Class.getDeclaredMethod(Class.java:2476)
 	at org.springframework.core.annotation.AnnotationUtils$AliasDescriptor.<init>(AnnotationUtils.java:2121)
 	... 22 more
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-04 10:14:29.980
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.rEoTcLOY
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-04 10:14:29.988
+!MESSAGE unsubscribing from classpath changes: sts4.classpath.rEoTcLOY
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-04 10:14:29.989
+!MESSAGE subsribers = {}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2020-06-04 10:14:29.990
+!MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.rEoTcLOY => OK

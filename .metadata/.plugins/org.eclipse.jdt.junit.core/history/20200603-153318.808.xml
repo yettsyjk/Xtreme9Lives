@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="PostTest (1)" project="XtremeREST" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.xtreme.PostTest" time="0.269" displayname="PostTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.PostTest]">
-    <testcase name="test1" classname="com.skilldistillery.xtreme.PostTest" time="0.269" displayname="repo mapping find post by id" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.PostTest]/[method:test1()]"/>
-  </testsuite>
-</testrun>

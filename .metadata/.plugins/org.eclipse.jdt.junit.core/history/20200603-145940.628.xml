@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="CategoryTest (1)" project="XtremeREST" tests="1" started="1" failures="0" errors="0" ignored="0">
-  <testsuite name="com.skilldistillery.xtreme.CategoryTest" time="0.169" displayname="CategoryTest" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.CategoryTest]">
-    <testcase name="test1" classname="com.skilldistillery.xtreme.CategoryTest" time="0.169" displayname="repo mapping find category by id" uniqueid="[engine:junit-jupiter]/[class:com.skilldistillery.xtreme.CategoryTest]/[method:test1()]"/>
-  </testsuite>
-</testrun>

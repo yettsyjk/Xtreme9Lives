@@ -119,13 +119,13 @@ public class PostController {
 
 	///////////////SEARCH FOR POSTS//////////
 	
-	@GetMapping("posts/search/{keyword}")//http://localhost:8082/api/posts/search/xander
+	@GetMapping("posts/search/{keyword}")
 	public List<Post> postsByKeyword(@PathVariable String keyword){
 		return postSvc.postsByKeyword(keyword);
 	}
 	
 	/////////////POSTS BY PRICE RANGE//////////
-	@GetMapping("posts/search/price/{low}/{high}")//http://localhost:8082/api/posts/search/price/12.99/6500.00
+	@GetMapping("posts/search/price/{low}/{high}")
 	public List<Post> findByPriceBetween(@PathVariable Double low,@PathVariable double high){
 		return postSvc.findByPriceBetween(low, high);
 	}
